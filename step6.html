@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 6: Confirmation - Global Solutions Inc.</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery UI for date picker -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/ui-lightness/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <button class="header-toggle" id="headerToggle">☰</button>
+            <div class="company-name">
+                <h1>Global Solutions Inc.</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Application Steps</h2>
+            </div>
+            <nav class="step-navigation">
+                <a href="step1.html" class="step-item">
+                    <span class="step-number">1</span>
+                    <span class="step-label">Personal Information</span>
+                </a>
+                <a href="step2.html" class="step-item">
+                    <span class="step-number">2</span>
+                    <span class="step-label">Personal History</span>
+                </a>
+                <a href="step3.html" class="step-item">
+                    <span class="step-number">3</span>
+                    <span class="step-label">Address Information</span>
+                </a>
+                <a href="step4.html" class="step-item">
+                    <span class="step-number">4</span>
+                    <span class="step-label">ID Information</span>
+                </a>
+                <a href="step5.html" class="step-item">
+                    <span class="step-number">5</span>
+                    <span class="step-label">Review</span>
+                </a>
+                <a href="step6.html" class="step-item active">
+                    <span class="step-number">6</span>
+                    <span class="step-label">Confirmation</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            <div class="form-container">
+                <div class="form-step active">
+                    <h2 class="step-title">Step 6: Confirmation</h2>
+                    <div class="confirmation-container">
+                        <div class="confirmation-icon">✓</div>
+                        <h3>Application Submitted Successfully!</h3>
+                        <p>Thank you for submitting your application. A confirmation email has been sent to the email address you provided.</p>
+                        <div class="reference-number">
+                            <strong>Reference Number:</strong> <span id="referenceNumber"></span>
+                        </div>
+                        <p class="confirmation-note">Please keep this reference number for your records.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>Registered in Delaware, USA - Company Registration No. GS-2024-001234. ©2024-2025 Global Solutions Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Set current step for this page
+        window.currentStep = 6;
+        window.nextPage = null;
+        window.prevPage = 'step5.html';
+    </script>
+</body>
+</html>
+

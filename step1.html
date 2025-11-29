@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 1: Personal Information - Global Solutions Inc.</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery UI for date picker -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/ui-lightness/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <button class="header-toggle" id="headerToggle">☰</button>
+            <div class="company-name">
+                <h1>Global Solutions Inc.</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Application Steps</h2>
+            </div>
+            <nav class="step-navigation">
+                <a href="step1.html" class="step-item active">
+                    <span class="step-number">1</span>
+                    <span class="step-label">Personal Information</span>
+                </a>
+                <a href="step2.html" class="step-item">
+                    <span class="step-number">2</span>
+                    <span class="step-label">Personal History</span>
+                </a>
+                <a href="step3.html" class="step-item">
+                    <span class="step-number">3</span>
+                    <span class="step-label">Address Information</span>
+                </a>
+                <a href="step4.html" class="step-item">
+                    <span class="step-number">4</span>
+                    <span class="step-label">ID Information</span>
+                </a>
+                <a href="step5.html" class="step-item">
+                    <span class="step-number">5</span>
+                    <span class="step-label">Review</span>
+                </a>
+                <a href="step6.html" class="step-item">
+                    <span class="step-number">6</span>
+                    <span class="step-label">Confirmation</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            <div class="form-container">
+                <div class="form-step active">
+                    <h2 class="step-title">Step 1: Personal Information</h2>
+                    <p class="required-note">FIELDS MARKED IN GREEN ARE REQUIRED!</p>
+                    
+                    <form id="personalInfoForm" class="form-grid">
+                        <div class="form-column">
+                            <div class="form-group">
+                                <label for="title">Title:</label>
+                                <select id="title" name="title" class="form-control">
+                                    <option value="">Select...</option>
+                                    <option value="Mr">Mr</option>
+                                    <option value="Mrs">Mrs</option>
+                                    <option value="Miss">Miss</option>
+                                    <option value="Ms">Ms</option>
+                                    <option value="Dr">Dr</option>
+                                    <option value="Prof">Prof</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="forename">Forename:</label>
+                                <input type="text" id="forename" name="forename" class="form-control" placeholder="Forename">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="middlename1">Middle name 1:</label>
+                                <input type="text" id="middlename1" name="middlename1" class="form-control" placeholder="Middle name 1">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="middlename2">Middle name 2:</label>
+                                <input type="text" id="middlename2" name="middlename2" class="form-control" placeholder="Middle name 2">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="surname">Surname:</label>
+                                <input type="text" id="surname" name="surname" class="form-control required" placeholder="Surname" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-column">
+                            <div class="form-group">
+                                <label for="dateOfBirth" class="required">Date of birth:</label>
+                                <input type="text" id="dateOfBirth" name="dateOfBirth" class="form-control required datepicker" placeholder="Select date" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="birthNationality" class="required">Birth Nationality:</label>
+                                <select id="birthNationality" name="birthNationality" class="form-control required" required>
+                                    <option value="">Select...</option>
+                                    <!-- Birth nationalities will be populated dynamically by JavaScript -->
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="countryOfBirth" class="required">Country of Birth:</label>
+                                <select id="countryOfBirth" name="countryOfBirth" class="form-control required" required>
+                                    <option value="">Select...</option>
+                                    <!-- Countries will be populated dynamically by JavaScript -->
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="townOfBirth" class="required">Town of Birth:</label>
+                                <input type="text" id="townOfBirth" name="townOfBirth" class="form-control required" placeholder="Town of Birth" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-column">
+                            <div class="form-group">
+                                <label for="gender" class="required">Gender:</label>
+                                <select id="gender" name="gender" class="form-control required" required>
+                                    <option value="">Select...</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Other</option>
+                                    <option value="Prefer not to say">Prefer not to say</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="required">Applicant Email address:</label>
+                                <input type="email" id="email" name="email" class="form-control required" placeholder="Applicant Email Address" required>
+                                <small class="form-help">* The email address provided must belong to the applicant. The email address will be used to send a confirmation email when the application has been submitted and by the DBS to identify if an application has been submitted previously.</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="niNumberAvailable" class="required">National Insurance Number Available?:</label>
+                                <select id="niNumberAvailable" name="niNumberAvailable" class="form-control required" required>
+                                    <option value="">Select...</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group" id="niNumberGroup" style="display: none;">
+                                <label for="niNumber" class="required">National Insurance Number:</label>
+                                <input type="text" id="niNumber" name="niNumber" class="form-control required" placeholder="AB123456C" pattern="[A-Z]{2}[0-9]{6}[A-Z]{1}" maxlength="9">
+                                <small class="form-help">Format: 2 letters, 6 numbers, 1 letter (e.g., AB123456C)</small>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-secondary" id="prevBtn" style="display: none;">Previous</button>
+                    <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Warning Modal -->
+    <div class="modal-overlay" id="warningModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>⚠️ Form Incomplete</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Please fill in all required fields before proceeding to the next step.</p>
+                <p class="modal-note">Fields marked in green are required.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="modalOkBtn">OK, I Understand</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>Registered in Delaware, USA - Company Registration No. GS-2024-001234. ©2024-2025 Global Solutions Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Set current step for this page
+        window.currentStep = 1;
+        window.nextPage = 'step2.html';
+        window.prevPage = null;
+    </script>
+</body>
+</html>
+

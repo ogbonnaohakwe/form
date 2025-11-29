@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 4: ID Information - Global Solutions Inc.</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery UI for date picker -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/ui-lightness/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <button class="header-toggle" id="headerToggle">☰</button>
+            <div class="company-name">
+                <h1>Global Solutions Inc.</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Application Steps</h2>
+            </div>
+            <nav class="step-navigation">
+                <a href="step1.html" class="step-item">
+                    <span class="step-number">1</span>
+                    <span class="step-label">Personal Information</span>
+                </a>
+                <a href="step2.html" class="step-item">
+                    <span class="step-number">2</span>
+                    <span class="step-label">Personal History</span>
+                </a>
+                <a href="step3.html" class="step-item">
+                    <span class="step-number">3</span>
+                    <span class="step-label">Address Information</span>
+                </a>
+                <a href="step4.html" class="step-item active">
+                    <span class="step-number">4</span>
+                    <span class="step-label">ID Information</span>
+                </a>
+                <a href="step5.html" class="step-item">
+                    <span class="step-number">5</span>
+                    <span class="step-label">Review</span>
+                </a>
+                <a href="step6.html" class="step-item">
+                    <span class="step-number">6</span>
+                    <span class="step-label">Confirmation</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            <div class="form-container">
+                <div class="form-step active">
+                    <h2 class="step-title">Step 4: ID Information</h2>
+                    <p class="required-note">FIELDS MARKED IN ORANGE ARE REQUIRED!</p>
+                    
+                    <form id="idInfoForm" class="form-grid">
+                        <div class="form-column">
+                            <div class="form-group">
+                                <label for="idType" class="required">Identification Type:</label>
+                                <select id="idType" name="idType" class="form-control required" required>
+                                    <option value="">Select...</option>
+                                    <option value="Passport">Passport</option>
+                                    <option value="Driving License">Driving License</option>
+                                    <option value="National ID">National ID</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="idDocumentNumber" class="required">ID Document Number:</label>
+                                <input type="text" id="idDocumentNumber" name="idDocumentNumber" class="form-control required" placeholder="Document Number" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-column">
+                            <div class="form-group">
+                                <label for="passportNumber">Passport Number:</label>
+                                <input type="text" id="passportNumber" name="passportNumber" class="form-control" placeholder="Passport Number">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="passportExpiryDate">Passport Expiry Date:</label>
+                                <input type="text" id="passportExpiryDate" name="passportExpiryDate" class="form-control datepicker" placeholder="Select date">
+                            </div>
+                        </div>
+                        
+                        <div class="form-column">
+                            <div class="form-group">
+                                <label for="idIssueDate" class="required">ID Issue Date:</label>
+                                <input type="text" id="idIssueDate" name="idIssueDate" class="form-control required datepicker" placeholder="Select date" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="idExpiryDate">ID Expiry Date:</label>
+                                <input type="text" id="idExpiryDate" name="idExpiryDate" class="form-control datepicker" placeholder="Select date">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="idDocumentUpload" class="required">Upload ID Document:</label>
+                                <small class="form-help">Please upload a clear copy of your ID document (PDF, JPG, or PNG, max 5MB)</small>
+                                <input type="file" id="idDocumentUpload" name="idDocumentUpload" class="form-control required" accept=".pdf,.jpg,.jpeg,.png" required>
+                                <div id="idDocumentPreview" class="file-preview"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="utilityBillUpload" class="required">Upload Utility Bill:</label>
+                                <small class="form-help">Please upload a recent utility bill as proof of address (PDF, JPG, or PNG, max 5MB)</small>
+                                <input type="file" id="utilityBillUpload" name="utilityBillUpload" class="form-control required" accept=".pdf,.jpg,.jpeg,.png" required>
+                                <div id="utilityBillPreview" class="file-preview"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-navigation">
+                    <a href="step3.html" class="btn btn-secondary" id="prevBtn">Previous</a>
+                    <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Warning Modal -->
+    <div class="modal-overlay" id="warningModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>⚠️ Form Incomplete</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Please fill in all required fields before proceeding to the next step.</p>
+                <p class="modal-note">Fields marked in orange are required.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="modalOkBtn">OK, I Understand</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>Registered in Delaware, USA - Company Registration No. GS-2024-001234. ©2024-2025 Global Solutions Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Set current step for this page
+        window.currentStep = 4;
+        window.nextPage = 'step5.html';
+        window.prevPage = 'step3.html';
+    </script>
+</body>
+</html>
+

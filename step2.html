@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 2: Personal History - Global Solutions Inc.</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery UI for date picker -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/ui-lightness/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <button class="header-toggle" id="headerToggle">☰</button>
+            <div class="company-name">
+                <h1>Global Solutions Inc.</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>Application Steps</h2>
+            </div>
+            <nav class="step-navigation">
+                <a href="step1.html" class="step-item">
+                    <span class="step-number">1</span>
+                    <span class="step-label">Personal Information</span>
+                </a>
+                <a href="step2.html" class="step-item active">
+                    <span class="step-number">2</span>
+                    <span class="step-label">Personal History</span>
+                </a>
+                <a href="step3.html" class="step-item">
+                    <span class="step-number">3</span>
+                    <span class="step-label">Address Information</span>
+                </a>
+                <a href="step4.html" class="step-item">
+                    <span class="step-number">4</span>
+                    <span class="step-label">ID Information</span>
+                </a>
+                <a href="step5.html" class="step-item">
+                    <span class="step-number">5</span>
+                    <span class="step-label">Review</span>
+                </a>
+                <a href="step6.html" class="step-item">
+                    <span class="step-number">6</span>
+                    <span class="step-label">Confirmation</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            <div class="form-container">
+                <div class="form-step active">
+                    <h2 class="step-title">Step 2: Personal History</h2>
+                    <p class="required-note">FIELDS MARKED IN ORANGE ARE REQUIRED!</p>
+                    
+                    <form id="personalHistoryForm" class="form-grid">
+                        <div class="form-column">
+                            <div class="form-group">
+                                <label for="previousAddresses" class="required">Previous Addresses (last 5 years):</label>
+                                <small class="form-help">Please list previous addresses with dates</small>
+                                <textarea id="previousAddresses" name="previousAddresses" class="form-control required" rows="5" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="nameChanged" class="required">Have you changed your name before?:</label>
+                                <select id="nameChanged" name="nameChanged" class="form-control required" required>
+                                    <option value="">Select...</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group" id="nameChangeDetailsGroup" style="display: none;">
+                                <label for="nameChangeDetails" class="required">Please provide details of the name change:</label>
+                                <small class="form-help">Please provide your previous name(s), the date of change, and the reason for the change</small>
+                                <textarea id="nameChangeDetails" name="nameChangeDetails" class="form-control required" rows="5" required></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-column">
+                            <div class="form-group">
+                                <label for="employmentHistory" class="required">Employment History:</label>
+                                <small class="form-help">Please list your employment history</small>
+                                <textarea id="employmentHistory" name="employmentHistory" class="form-control required" rows="5" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="nationalityChanged" class="required">Has your Nationality changed since birth?:</label>
+                                <select id="nationalityChanged" name="nationalityChanged" class="form-control required" required>
+                                    <option value="">Select...</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group" id="nationalityChangeDetailsGroup" style="display: none;">
+                                <label for="nationalityChangeDetails" class="required">Please provide details of the nationality change:</label>
+                                <small class="form-help">Please provide your previous nationality, the date of change, and the reason for the change</small>
+                                <textarea id="nationalityChangeDetails" name="nationalityChangeDetails" class="form-control required" rows="5" required></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="form-column">
+                            <div class="form-group">
+                                <label for="educationBackground" class="required">Education Background:</label>
+                                <small class="form-help">Please list your educational qualifications</small>
+                                <textarea id="educationBackground" name="educationBackground" class="form-control required" rows="5" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="convicted" class="required">Have you ever been convicted of a criminal offence?:</label>
+                                <select id="convicted" name="convicted" class="form-control required" required>
+                                    <option value="">Select...</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group" id="convictionDetailsGroup" style="display: none;">
+                                <label for="convictionDetails" class="required">Please provide details of the conviction(s):</label>
+                                <small class="form-help">Please provide details of any criminal convictions, including dates and outcomes</small>
+                                <textarea id="convictionDetails" name="convictionDetails" class="form-control required" rows="5" required></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-navigation">
+                    <a href="step1.html" class="btn btn-secondary" id="prevBtn">Previous</a>
+                    <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Warning Modal -->
+    <div class="modal-overlay" id="warningModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>⚠️ Form Incomplete</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Please fill in all required fields before proceeding to the next step.</p>
+                <p class="modal-note">Fields marked in orange are required.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="modalOkBtn">OK, I Understand</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>Registered in Delaware, USA - Company Registration No. GS-2024-001234. ©2024-2025 Global Solutions Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Set current step for this page
+        window.currentStep = 2;
+        window.nextPage = 'step3.html';
+        window.prevPage = 'step1.html';
+    </script>
+</body>
+</html>
+
