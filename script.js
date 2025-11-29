@@ -127,42 +127,30 @@ $(document).ready(function() {
     $('#nextBtn').on('click', function(e) {
         e.preventDefault();
         
-        // Check if any fields are filled
+        // Check if any fields are filled (basic check only, no strict validation)
         if (!hasAnyFieldFilled()) {
             showWarningModal();
             return;
         }
         
-        // Validate and proceed
-        const isValid = validateCurrentStep();
-        if (isValid) {
-            saveCurrentStepData();
-            
-            if (currentStep === 5) {
-                generateReviewSummary();
-            }
-            
-            if (window.nextPage) {
-                window.location.href = window.nextPage;
-            }
-        } else {
-            // Scroll to first error
-            const firstError = $('.form-step .error').first();
-            if (firstError.length) {
-                $('html, body').animate({
-                    scrollTop: firstError.offset().top - 100
-                }, 500);
-            }
+        // Save current step data and proceed (no strict validation since there's no backend)
+        saveCurrentStepData();
+        
+        if (currentStep === 5) {
+            generateReviewSummary();
+        }
+        
+        if (window.nextPage) {
+            window.location.href = window.nextPage;
         }
     });
     
     // Submit button
     $('#submitBtn').on('click', function(e) {
         e.preventDefault();
-        if (validateCurrentStep()) {
-            saveCurrentStepData();
-            submitForm();
-        }
+        // Save data and submit (no strict validation since there's no backend)
+        saveCurrentStepData();
+        submitForm();
     });
     
     // Conditional fields
@@ -1049,6 +1037,15 @@ $(document).ready(function() {
             }
             
             if ($field.attr('type') === 'hidden' || $field.attr('type') === 'button' || $field.attr('type') === 'submit') {
+                return;
+            }
+            
+            // Handle file inputs
+            if ($field.attr('type') === 'file') {
+                if ($field[0].files && $field[0].files.length > 0) {
+                    hasFilledField = true;
+                    return false; // Break the loop
+                }
                 return;
             }
             
